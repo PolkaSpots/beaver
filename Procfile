@@ -1,0 +1,1 @@
+beaver: bin/beaver

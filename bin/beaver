@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+root = File.expand_path('../lib',File.dirname(__FILE__))
+$: << root
+require 'beaver'
+require 'location_worker'
+require 'sneakers'
+require 'sneakers/runner'
+require 'logger'
+require 'statsd-ruby'
+
+statsd = Statsd.new(ENV['STATSD_HOST'], 9125)
+
+Sneakers.configure( :amqp => "amqp://127.0.0.1", :daemonize => false, :log => STDOUT)
+Sneakers.logger.level = Logger::INFO
+
+r = Sneakers::Runner.new([ LocationWorker ])
+r.run
