@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "foreman"
   spec.add_dependency "statsd-ruby"
-  spec.add_dependency "sneakers", git: 'https://github.com/jondot/sneakers.git'
+  spec.add_dependency "sneakers", [git: 'https://github.com/jondot/sneakers.git']
 
 
 end
