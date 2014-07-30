@@ -103,7 +103,7 @@ class LocationWorker
       location = Location.find_by slug: msg["slug"]
       location.flume_counted(msg[:count])
     end
-
+    ack!
   end
 
 end

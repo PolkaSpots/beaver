@@ -12,7 +12,6 @@ require 'statsd-ruby'
 
 statsd = Statsd.new(ENV['STATSD_HOST'], 9125)
 
-puts ENV
 puts 77777777777777777777
 puts ENV['HOST']
 
@@ -21,8 +20,8 @@ Sneakers.configure(
   amqp: {
     host: ENV['HOST'] || "127.0.0.1",
     port: ENV['PORT'] || 5672,
-    user: ENV['CT_USER'] || 'guest',
-    pass: ENV['CT_PASS'] || 'guest',
+    user: ENV['USER'] || 'guest',
+    pass: ENV['PASS'] || 'guest',
     tls: ENV['TLS'] == "true" ? true : false,
     tls_cert: ENV['CERT'] || nil,
     tls_key: ENV['KEY'] || nil,
