@@ -8,9 +8,9 @@ require 'location_worker'
 require 'sneakers'
 require 'sneakers/runner'
 require 'logger'
-require 'statsd-ruby'
+#require 'statsd-ruby'
 
-statsd = Statsd.new(ENV['STATSD_HOST'], 9125)
+#statsd = Statsd.new(ENV['STATSD_HOST'], 9125)
 
 Sneakers.configure( :amqp => "amqp://127.0.0.1", :daemonize => false, :log => STDOUT)
 Sneakers.logger.level = Logger::INFO
