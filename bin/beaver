@@ -14,23 +14,21 @@ statsd = Statsd.new(ENV['STATSD_HOST'], 9125)
 
 Sneakers.configure(
   vhost: ENV['CT_VHOST'],
-  amqp: ENV['HOST'],
-  # amqp: {
-  #   host: ENV['HOST'],
-  #   port: ENV['PORT'],
-  #   user: ENV['CT_USER'],
-  #   pass: ENV['CT_PASS'],
-  #   tls: ENV['TLS'] == "true" ? true : false,
-  #   tls_cert: ENV['CERT'],
-  #   tls_key: ENV['KEY'],
-  #   tls_ca_certificates: [ENV['CA']],
-  #   # verify_peer: false
-  # },
+  amqp: {
+    host: ENV['HOST'],
+    port: ENV['PORT'] || 5672,
+    user: ENV['CT_USER'] || 'guest',
+    pass: ENV['CT_PASS'] || 'guest',
+    tls: ENV['TLS'] == "true" ? true : false,
+    tls_cert: ENV['CERT'] || nil,
+    tls_key: ENV['KEY'] || nil,
+    tls_ca_certificates: [ENV['CA']] || nil,
+    verify_peer: ENV['VERIFY_PEER'] || false
+  },
   daemonize: false,
   log: STDOUT
 )
 
-Sneakers.configure( :amqp => "amqp://127.0.0.1", :daemonize => false, :log => STDOUT)
 Sneakers.logger.level = Logger::INFO
 
 r = Sneakers::Runner.new([ LocationWorker ])
