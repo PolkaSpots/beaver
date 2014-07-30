@@ -12,6 +12,10 @@ require 'statsd-ruby'
 
 statsd = Statsd.new(ENV['STATSD_HOST'], 9125)
 
+puts ENV
+puts 77777777777777777777
+puts ENV['HOST']
+
 Sneakers.configure(
   vhost: ENV['CT_VHOST'],
   amqp: {
