@@ -15,7 +15,7 @@ statsd = Statsd.new(ENV['STATSD_HOST'], 9125)
 Sneakers.configure(
   vhost: ENV['CT_VHOST'],
   amqp: {
-    host: ENV['HOST'],
+    host: ENV['HOST'] || "127.0.0.1",
     port: ENV['PORT'] || 5672,
     user: ENV['CT_USER'] || 'guest',
     pass: ENV['CT_PASS'] || 'guest',
