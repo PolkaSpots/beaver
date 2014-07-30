@@ -18,6 +18,7 @@ class LocationWorker
     puts msg
     case headers.routing_key
     when 'ps.location.hello'
+      puts Location.all.size
       puts "Message: #{msg}, routing_key: #{headers.routing_key}"
     when 'ps.location.geocode_lookup'
       record = msg["location_id"].present? ? Location.where(id: message.body["location_id"]).first : Nas.where(id: message.body["nas_id"]).first
