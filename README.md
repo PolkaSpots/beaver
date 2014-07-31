@@ -1,5 +1,5 @@
 # Beaver
-### Because everyone loves a nice Beaver ###
+### Because everyone loves an Eager Beaver ###
 
 Much of this is a shameless copy paste job from gocardless#hutch (https://github.com/gocardless/hutch).
 
