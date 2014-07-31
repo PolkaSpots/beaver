@@ -1,4 +1,3 @@
-require_relative './queue'
 require_relative './message'
 
 module Beaver

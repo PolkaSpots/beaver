@@ -6,8 +6,6 @@ $: << root
 require 'beaver'
 require_relative '../lib/beaver/cli'
 require_relative '../lib/beaver/worker'
-# require 'sneakers'
-# require 'sneakers/runner'
 
 cli = Beaver::CLI.new
 cli.run

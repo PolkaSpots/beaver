@@ -1,8 +1,6 @@
 require "beaver/version"
 require "beaver/broker"
 require "beaver/config"
-# require 'sneakers'
-# require 'sneakers/runner'
 require 'set'
 
 module Beaver
