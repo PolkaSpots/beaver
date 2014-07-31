@@ -39,6 +39,11 @@ module Beaver
         opts.on('--config FILE', 'Load Beaver configuration from a file') do |file|
           File.open(file) { |fp| Beaver::Config.load_from_file(fp) }
         end
+
+        opts.on('--require PATH', 'Require a Rails app or path') do |path|
+          Beaver::Config.require_paths << path
+        end
+
       end.parse!(args)
     end
 
