@@ -57,7 +57,6 @@ module Beaver
 
     def self.load_from_file(file)
       YAML.load(file).each do |attr, value|
-        puts value
         Beaver::Config.send("#{attr}=", value)
       end
     end

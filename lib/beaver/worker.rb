@@ -15,7 +15,6 @@ module Beaver
         #logger.warn "no consumer loaded, ensure there's no configuration issue"
       end
       @consumers = val
-      puts @consumers.map { |consumer| consumer.routing_keys.inspect }
     end
 
     def run
