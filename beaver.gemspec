@@ -4,11 +4,11 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'beaver/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "beaver"
+  spec.name          = "eager-beaver"
   spec.version       = Beaver::VERSION
   spec.authors       = ["Simon Morley"]
   spec.email         = ["simon@polkaspots.com"]
-  spec.summary       = "First Commit, We Love Beavers"
+  spec.summary       = "First Commit, We Love Eager Beavers"
   spec.description   = "A wrapper to process our many jobs. I' a consumer baby."
   spec.homepage      = "https://github.com/PolkaSpots/beaver/"
   spec.license       = "MIT"

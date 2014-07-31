@@ -38,7 +38,7 @@ module Beaver
         tls: @tls,
         tls_key: @tls_key,
         tls_cert: @tls_cert,
-        tls_ca_certificates: @ca,
+        tls_ca_certificates: [@ca],
         verify_peer: @verify_peer,
         username: @username,
         password: @password,
