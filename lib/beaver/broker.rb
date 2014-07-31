@@ -31,7 +31,6 @@ module Beaver
     end
 
     def open_connection
-      puts @config.inspect
       @connection = Bunny.new(
         host: @host,
         port: @port,
