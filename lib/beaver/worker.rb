@@ -11,8 +11,8 @@ module Beaver
 
     def consumers=(val)
       if val.empty?
-        puts "OMGGGG There's no values"
-        #logger.warn "no consumer loaded, ensure there's no configuration issue"
+        #puts "OMGGGG There's no values"
+        logger.warn "no consumer loaded, ensure there's no configuration issue"
       end
       @consumers = val
     end
@@ -40,7 +40,7 @@ module Beaver
     def handle_signals
       signal = Thread.main[:signal_queue].shift
       if signal
-        # logger.info "caught sig#{signal.downcase}, stopping beaver..."
+        logger.info "caught sig#{signal.downcase}, stopping the eager Beaver..."
         stop
       end
     end
@@ -64,10 +64,10 @@ module Beaver
     end
 
     def handle_message(consumer, delivery_info, properties, payload)
-      # logger.info("message(#{properties.message_id || '-'}): " +
-      #             "routing key: #{delivery_info.routing_key}, " +
-      #             "consumer: #{consumer}, " +
-      #             "payload: #{payload}")
+      logger.info("message(#{properties.message_id || '-'}): " +
+                  "routing key: #{delivery_info.routing_key}, " +
+                  "consumer: #{consumer}, " +
+                  "payload: #{payload}")
 
       broker = @broker
       message = Message.new(delivery_info, properties, payload)
