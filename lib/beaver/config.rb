@@ -21,6 +21,7 @@ module Beaver
         mq_ca: nil,
         mq_username: 'guest',
         mq_password: 'guest',
+        mq_verify_peer: false,
         log_level: Logger::INFO,
         require_paths: [],
         autoload_rails: true,

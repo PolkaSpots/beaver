@@ -7,16 +7,17 @@ module Beaver
     attr_accessor :connection, :channel, :exchange
 
     def initialize(config={})
-      @config   = config || Beaver::Config
-      @host     = @config[:mq_host]
-      @port     = @config[:mq_port]
-      @vhost    = @config[:mq_vhost]
-      @username = @config[:mq_username]
-      @password = @config[:mq_password]
-      @tls      = @config[:mq_tls]
-      @tls_key  = @config[:mq_tls_cert]
-      @tls_cert = @config[:mq_tls_key]
-      @ca       = @config[:mq_ca]
+      @config       = config || Beaver::Config
+      @host         = @config[:mq_host]
+      @port         = @config[:mq_port]
+      @vhost        = @config[:mq_vhost]
+      @username     = @config[:mq_username]
+      @password     = @config[:mq_password]
+      @tls          = @config[:mq_tls]
+      @tls_key      = @config[:mq_tls_cert]
+      @tls_cert     = @config[:mq_tls_key]
+      @ca           = @config[:mq_ca]
+      @verify_peer  = @config[:mq_verify_peer]
     end
 
     def connect(options)
@@ -38,6 +39,7 @@ module Beaver
         tls_key: @tls_key,
         tls_cert: @tls_cert,
         tls_certificates: [@ca],
+        verify_peer: @verify_peer
         username: @username,
         password: @password,
         heartbeat: 10,
