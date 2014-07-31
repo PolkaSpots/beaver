@@ -1,6 +1,7 @@
 ## Much clever stuff in here with thanks to gocardless#hutch
 ## https://github.com/gocardless/hutch
 
+require 'logger'
 
 module Beaver
 

@@ -1,6 +1,7 @@
 require "beaver/version"
 require "beaver/broker"
 require "beaver/config"
+require 'beaver/logging'
 require 'set'
 
 module Beaver
@@ -28,10 +29,16 @@ module Beaver
       @broker = Beaver::Broker.new(config)
       @broker.connect(options)
       @connected = true
+      logger.info "Beaver booted with pid #{Process.pid}"
     end
   end
 
   def self.connected?
+    @connected
+  end
+
+  def self.logger
+    Beaver::Logging.logger
   end
 
   module ClassMethods
