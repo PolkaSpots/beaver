@@ -4,34 +4,11 @@ require 'bundler/setup'
 root = File.expand_path('../lib',File.dirname(__FILE__))
 $: << root
 require 'beaver'
-require 'location_worker'
-require 'sneakers'
-require 'sneakers/runner'
-require 'logger'
-require 'statsd-ruby'
+require_relative '../lib/beaver/cli'
+require_relative '../lib/beaver/worker'
+# require 'sneakers'
+# require 'sneakers/runner'
 
-statsd = Statsd.new(ENV['STATSD_HOST'], 9125)
+cli = Beaver::CLI.new
+cli.run
 
-puts ENV['HOST']
-
-Sneakers.configure(
-  vhost: ENV['VHOST'],
-  amqp: {
-    host: ENV['HOST'],
-    port: ENV['PORT'] || 5672,
-    user: ENV['RABBIT_USER'] || 'guest',
-    pass: ENV['RABBIT_PASS'] || 'guest',
-    tls: ENV["TLS"] == "true" ? true : false,
-    tls_cert: ENV["CERT"],
-    tls_key: ENV["KEY"],
-    tls_ca_certificates: [ENV["CA"]],
-    verify_peer: ENV['VERIFY_PEER'] || false
-  },
-  daemonize: false,
-  log: STDOUT
-)
-
-Sneakers.logger.level = Logger::INFO
-
-r = Sneakers::Runner.new([ LocationWorker ])
-r.run
