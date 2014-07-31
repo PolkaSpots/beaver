@@ -30,7 +30,7 @@ Again, Beaver will only consume. It uses the same process method as Hutch.
 
 Add this line to your application's Gemfile:
 
-    gem 'beaver', git: "https://github.com/jondot/sneakers"
+    gem 'beaver', git: "https://github.com/PolkaSpots/beaver"
 
 And then execute:
 
