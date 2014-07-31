@@ -16,9 +16,9 @@ Hutch also has (at the current time) no support to send a CA and it was faster f
 
 Hutch requires access to the RabbitMQ API to clear the bindings out. Whilst this is a lovely idea, we run a heavily locked down cluster on a public IP and didn't want any traffic hitting the API. It was doable but added much work / config changes on our firewalls and chef recipes.
 
-Sneakers is a fabulous repository and we urge you all to try this first. It does however create a connection for each worker which didn't fit with our setup. We didn't have a lot of luck with it in production - we use god as a process monitor which is already famour for memory leaks. We found our servers dying a miserable death after a few hours, even when the connections were reduced to 1.
+Sneakers is a fabulous repository and we urge you all to try this first. It does however create a connection for each worker which didn't fit with our setup. We didn't have a lot of luck with it in production - we use god as a process monitor which is already famous for memory leaks. We found our servers dying a miserable death after a few hours, even when the connections were reduced to 1.
 
-Finally, we found the Sneakers Rails support lacking and we originally went off to create a sneakers-rails gem. Which we may still do.The principal of Sneaker's consume methods is to consume json to be platform independent. We like this a lot, it fits nicely with our multi-language set up.
+Finally, we found the Sneakers Rails support lacking and we originally went off to create a sneakers-rails gem. Which we may still do.The principal of Sneaker's consume methods is to consume JSON to be platform independent. We like this a lot, it fits nicely with our multi-language set up.
 
 The only problem is that it doesn't fit when you need access to your Rails models. If you're starting off, try and build your consumers so they accept JSON only and don't really need a db.
 
