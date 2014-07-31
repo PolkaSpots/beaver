@@ -14,8 +14,8 @@ module Beaver
       @username     = @config[:mq_username]
       @password     = @config[:mq_password]
       @tls          = @config[:mq_tls]
-      @tls_key      = @config[:mq_tls_cert]
-      @tls_cert     = @config[:mq_tls_key]
+      @tls_cert      = @config[:mq_tls_cert]
+      @tls_key     = @config[:mq_tls_key]
       @ca           = @config[:mq_ca]
       @verify_peer  = @config[:mq_verify_peer]
     end
@@ -31,6 +31,7 @@ module Beaver
     end
 
     def open_connection
+      puts @config.inspect
       @connection = Bunny.new(
         host: @host,
         port: @port,
