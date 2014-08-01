@@ -79,6 +79,7 @@ module Beaver
         broker.ack(delivery_info.delivery_tag)
       rescue => e
         logger.info(e)
+        broker.nack(delivery_info.delivery_tag)
       end
     end
 

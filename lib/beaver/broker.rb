@@ -100,6 +100,10 @@ module Beaver
       @channel.ack(delivery_tag, false)
     end
 
+    def nack(delivery_tag)
+      @channel.nack(delivery_tag, false, false)
+    end
+
   end
 
 end
