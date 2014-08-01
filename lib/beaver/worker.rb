@@ -5,6 +5,8 @@ module Beaver
 
   class Worker
 
+    include Logging
+
     def initialize(broker, consumers)
       self.consumers = consumers
       @broker        = broker

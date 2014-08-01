@@ -8,7 +8,7 @@ module Beaver
 
     def run
       parse_options
-      puts "Loading the eager Beaver..."
+      puts "Loading the Eager Beaver..."
       if load_app
         start_workers
         puts "Application loaded..."
