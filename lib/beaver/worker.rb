@@ -70,9 +70,13 @@ module Beaver
                   "payload: #{payload}")
 
       broker = @broker
-      message = Message.new(delivery_info, properties, payload)
-      consumer.new.process(message)
-      broker.ack(delivery_info.delivery_tag)
+      begin
+        message = Message.new(delivery_info, properties, payload)
+        consumer.new.process(message)
+        broker.ack(delivery_info.delivery_tag)
+      rescue => e
+        logger.info(e)
+      end
     end
 
   end
