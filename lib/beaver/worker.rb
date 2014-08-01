@@ -1,4 +1,5 @@
 require_relative './message'
+require 'beaver/logging'
 
 module Beaver
 
